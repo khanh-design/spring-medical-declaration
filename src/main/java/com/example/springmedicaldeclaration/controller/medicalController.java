@@ -9,34 +9,35 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/home")
 public class medicalController {
     private static HealthDeclarationService healthDeclarationService = new HealthDeclarationService();
-    @GetMapping("/list")
+    @GetMapping("")
     public String showList(Model model) {
         List<Health_declaration> healthDeclarations = healthDeclarationService.findAll();
-        model.addAttribute("", healthDeclarations);
+        model.addAttribute("declarations", healthDeclarations);
         return "/list";
     }
 
     @GetMapping("/insert")
     public String insertFrom(Model model) {
-        Health_declaration healthDeclaration = new Health_declaration();
-        healthDeclaration.setUser(new User());
-        healthDeclaration.setVehicle(new Vehicle());
-        healthDeclaration.setAddress(new Address());
-        healthDeclaration.setSicksInfection(new Sicks_Infection());
-        model.addAttribute("HeathDeclaration", healthDeclaration);
+        Health_declaration declarationList = new Health_declaration();
+        declarationList.setUser(new User());
+        declarationList.setVehicle(new Vehicle());
+        declarationList.setAddress(new Address());
+        declarationList.setSicksInfection(new Sicks_Infection());
+        model.addAttribute("declaration", declarationList);
         return "/index";
     }
 
-    @PostMapping("/insert/save")
-    public String save(@ModelAttribute("HeathDeclaration") Health_declaration declaration, Model model) {
+    @PostMapping("/save") 
+    public String save(@ModelAttribute("declaration") Health_declaration declaration) {
         healthDeclarationService.insertFrom(declaration);
-        model.addAttribute("message", "Gui thanh cong");
-        return "redirect:/list";
+        return "redirect:/home";
     }
 }

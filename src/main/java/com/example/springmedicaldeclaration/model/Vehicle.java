@@ -6,14 +6,14 @@ public class Vehicle {
     private String thongTinDiLai;
     private String soHieuPhuongTien;
     private int soGhe;
-    private Date ngayKhoiHanh;
-    private Date ngayKetThuc;
+    private String ngayKhoiHanh;
+    private String ngayKetThuc;
     private String mota;
 
     public Vehicle() {
 
     }
-    public Vehicle(String thongTinDiLai, String soHieuPhuongTien, int soGhe, Date ngayKhoiHanh, Date ngayKetThuc, String mota) {
+    public Vehicle(String thongTinDiLai, String soHieuPhuongTien, int soGhe, String ngayKhoiHanh, String ngayKetThuc, String mota) {
         this.thongTinDiLai = thongTinDiLai;
         this.soHieuPhuongTien = soHieuPhuongTien;
         this.soGhe = soGhe;
@@ -46,19 +46,19 @@ public class Vehicle {
         this.soGhe = soGhe;
     }
 
-    public Date getNgayKhoiHanh() {
+    public String getNgayKhoiHanh() {
         return ngayKhoiHanh;
     }
 
-    public void setNgayKhoiHanh(Date ngayKhoiHanh) {
+    public void setNgayKhoiHanh(String ngayKhoiHanh) {
         this.ngayKhoiHanh = ngayKhoiHanh;
     }
 
-    public Date getNgayKetThuc() {
+    public String getNgayKetThuc() {
         return ngayKetThuc;
     }
 
-    public void setNgayKetThuc(Date ngayKetThuc) {
+    public void setNgayKetThuc(String ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
     }
 
